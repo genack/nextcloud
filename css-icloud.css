@@ -1,0 +1,976 @@
+/* --- 1. RESET DE VARIABLES NATIVAS (EL CORAZÓN DEL TEMA) --- */
+/* 1.1 TIPOGRAFÍA Y REGLAS BASE */
+:root {
+    --body-container-radius: 22px !important;
+    --border-radius-element: 22px !important;
+    --color-primary: #007AFF !important; /* Azul oficial de Apple */
+    --color-primary-element: #007AFF !important;
+    --color-text-maxcontrast: #1d1d1f !important; /* El negro suave característico de Apple */
+    
+    /* Forzamos transparencia global para que el wallpaper se vea */
+    --color-main-background: rgba(255, 255, 255, 0.4) !important;
+    --color-background-hover: rgba(0, 122, 255, 0.1) !important;
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-header: rgba(255, 255, 255, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-blur: blur(20px) saturate(180%);
+    --border-radius-element: 22px !important;
+}
+
+body, #body-user, #body-settings, .app-navigation, .unit, .filelist .name {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* 2. HEADER Y NAVEGACIÓN (Efecto Glassmorphism) */
+#header, .app-navigation, #app-navigation {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* 3. ESTRUCTURA Y LAYOUT (Ajuste para que no se solapen) */
+#app-navigation, .app-navigation {
+   padding-top: 15px !important;
+   border-radius: 0 0 0 0!important;
+}
+
+#app-content,.app-content {
+    padding-top: 15px !important;
+    border-radius: 0 0 0 0!important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#app-sidebar,.app-sidebar,.app-sidebar-tabs__tab {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+#content, .content {
+    border-radius: 0 0 22px 22px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* 4. ELEMENTOS DEL MENÚ LATERAL */
+.app-navigation-entry {
+    margin: 4px 12px !important;
+    border-radius: 10px !important;
+}
+
+.app-navigation-entry.active, 
+.app-navigation-entry.active > a {
+    background-color: rgba(0, 122, 255, 0.12) !important;
+    color: #007AFF !important;
+    font-weight: 600 !important;
+}
+.button, .panel, .app-navigation-entry {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+/* 5. BUSCADOR Y LOGIN */
+#header .unified-search__form {
+    background-color: rgba(200, 200, 200, 0.2) !important;
+    border-radius: 22px !important;
+}
+
+/* Limpiar Login */
+#body-login #header, .guest #header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+
+}
+
+#body-login .header-app-name { display: none; }
+
+
+/* --- ESTILO ICLOUD PARA LOGIN --- */
+
+/* 1. Fondo transparente y desenfoque en el contenedor principal */
+#body-login {
+    background-size: cover !important;
+}  
+#body-login .login-box{
+   background: none !important;
+   box-shadow: none !important;
+}
+
+#body-login button,
+#body-login label{ margin-top: .4em; padding: .1em;}
+#body-login input:focus + label{ margin-top: .1em; padding-left: .4em;}
+
+#body-login label,
+#body-login .login-form,
+#body-login .groupbox,
+#body-login h1, 
+#body-login h2, 
+#body-login span,
+#body-login input, 
+#body-login p,
+#body-login a {
+    color: #222222 !important; /* El negro suave característico de Apple */
+}
+
+#body-login footer.guest-box{
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 2. Limpiar el encabezado del login */
+#body-login #header, 
+.guest #header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Ocultar el nombre de la app en el login si lo deseas más minimalista */
+#body-login .header-app-name { 
+    display: none; 
+}
+
+/* 3. Caja de inicio de sesión estilo Glassmorphism */
+#body-login .login-form, 
+#body-login .login-wrapper {
+    background-color: var(--color-main-background) !important; /* Usa tu 0.4 de opacidad */
+    backdrop-filter: var(--glass-blur) !important; /* Usa tu blur(20px) saturate(180%) */
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+    border-radius: var(--body-container-radius) !important; /* 22px según tu PDF */
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+    padding: 30px !important;
+
+}
+/* 4. Estilo para los campos de texto */
+#body-login input, 
+#body-login input[type='password'] {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 12px !important;
+    height: 44px !important;
+}
+
+/* 5. Botón de acceso azul Apple */
+#body-login #submit-form {
+    background-color: #007AFF !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease;
+}
+
+#body-login #submit-form:hover {
+    background-color: #0062CC !important;
+    transform: scale(1.02);
+}
+
+#body-login input:focus {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border-color: var(--color-primary) !important; /* Azul #007AFF */
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15) !important;
+}
+
+/* 6. ICONOS (Azul Apple) */
+.icon-folder, .icon-shared, [class^='icon-folder'] {
+    filter: invert(48%) sepia(85%) saturate(2200%) hue-rotate(190deg) brightness(95%) contrast(105%) !important;
+}
+
+/* AJUSTE PARA EL PANEL DE CONFIGURACIONES */
+#body-settings #app-content {
+    margin-left: 0px !important; /* Los ajustes suelen ser más anchos */
+}
+
+
+/* --- WIDGETS DEL DASHBOARD ESTILO IOS --- */
+
+/* Contenedor de cada tarjeta */
+.panel {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(15px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(160%) !important;
+    border-radius: 24px !important; /* Bordes más pronunciados tipo widget */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05) !important;
+    padding: 15px !important;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto al pasar el ratón */
+.panel:hover {
+    transform: scale(1.01);
+}
+
+/* Títulos de los widgets */
+.panel h2, .panel h3 {
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+    color: #000 !important;
+    margin-bottom: 12px !important;
+}
+
+
+/* Ajuste del botón "Editar Widgets" */
+.edit-panels {
+    background-color: rgba(0, 122, 255, 0.1) !important;
+    color: #007AFF !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(5px);
+}
+
+
+/* --- MENÚS DESPLEGABLES (User Menu & Popovers) --- */
+
+/* Fondo del menú desplegable */
+.popover__inner, 
+.menu-option, 
+.popover, 
+#header .menu {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+    padding: 8px !important;
+}
+
+
+/* Elementos individuales del menú */
+.popover__inner li, 
+.popover__inner button, 
+.popover__inner a {
+    border-radius: 10px !important;
+    margin: 2px 0 !important;
+    transition: background 0.2s ease !important;
+}
+
+/* Hover estilo Apple (Gris suave) */
+.popover__inner li:hover, 
+.popover__inner button:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.button.primary, 
+button.primary, 
+.primary-button {
+    background-color: #007AFF !important; /* Azul San Francisco */
+    border-radius: 10px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3) !important;
+}
+
+.button.primary:hover {
+    background-color: #0062CC !important;
+}
+
+
+/* --- FIX ESPECÍFICO PARA NEXTCLOUD 36 --- */
+/* Forzar transparencia en el listado de archivos para que se vea el fondo */
+
+.conflict-picker__all{
+    background-image: none!important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    margin-top: 1.9em!important;    
+    padding: .5em!important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.conflict-picker__header{
+ border-radius: 10px !important;
+ box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3) !important;
+ padding: .5em .9em .5em .9em!important;
+}
+.app-content-list,
+.apps-list__toolbar,
+.search-messages,
+.content-list__search,
+.conflict-picker__header,
+#app-content-vue,
+#app-content-vue li,
+#app-content-vue .header,
+#app-content-vue h3,
+.files-list__thead-overlay,
+.files-list__filters,
+.files-list__thead, 
+.files-list__row, 
+.files-list__tfoot,
+#filestable thead th {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.files-list__row {
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Evitar que las filas tengan fondo sólido al pasar el mouse */
+.files-list__row:hover {
+    background-color: rgba(0, 122, 255, 0.08) !important;
+    transform: translateY(-1px); /* Pequeño levante */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+
+}
+
+/* Sidebar de detalles (Ajuste de selector para NC36) */
+#app-sidebar, .app-sidebar {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(30px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Corregir el color de los iconos de navegación activa */
+.app-navigation-entry.active .icon, 
+.app-navigation-entry.active svg {
+    filter: none !important;
+    fill: #007AFF !important;
+}
+
+
+/* Scrollbar estilo macOS */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15) !important;
+    border-radius: 10px !important;
+    border: 2px solid transparent !important;
+    background-clip: content-box !important;
+}
+
+#body-public footer{ max-width: 25vw!important;}
+#body-public .footer__simple-sign-up{ display: none !important; }
+
+
+/* --- VISOR DE ARCHIVOS ESTILO ICLOUD GLASS --- */
+
+/* Fondo principal del visor (Media Viewer) */
+div[id^='viewer'], 
+.viewer__content, 
+.viewer__main {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Blanco translúcido */
+}
+
+.text-editor__main,
+.viewer__header {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+/* --- FIX PARA MENSAJES Y NOTIFICACIONES (LEGIBILIDAD) --- */
+
+/* Burbujas de chat y mensajes de sistema */
+.message, 
+.message-content, 
+.chat-message__content,
+.oc-dialog {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Blanco más sólido */
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Mensajes enviados por ti (Azul Apple) */
+.message.sent, 
+.chat-message--sent .chat-message__content {
+    background-color: #007AFF !important;
+    color: #ffffff !important;
+}
+
+
+/* Notificaciones (Toasts) */
+#notification-container div,
+.toastify,
+.notification {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    border-radius: 22px !important;
+    color: #000 !important;
+}
+
+/* Input de texto en el chat */
+.chat-input__container, 
+#chat-controls {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* --- FIX BOTÓN ACCIONES (TRES PUNTOS) --- */
+
+/* Asegurar que el contenedor del botón no sea transparente */
+.files-list__row .action-item.action-item--main,
+.files-list__row .action-item__menutoggle,
+.action-menu__toggle {
+    opacity: 1 !important;
+    visibility: visible !important;
+    border-radius: 50% !important;
+    padding: 0px !important;
+}
+
+/* --- OPTIMIZACIÓN DE INPUTS ESTILO ICLOUD --- */
+
+/* Selector universal para campos de texto, áreas de texto y selects */
+input, 
+input[type='password'], 
+input[type='email'], 
+input[type='search'], 
+input[type='tel'], 
+input[type='url'], 
+textarea, 
+select,
+.multiselect__tags,
+.input-field__input {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Fondo translúcido */
+    backdrop-filter: blur(10px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(150%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 24px !important; /* Bordes redondeados suavizados */
+    color: var(--color-main-text) !important;
+    transition: all 0.2s ease-in-out !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+ 
+
+/* Efecto Focus (al hacer clic para escribir) */
+input:focus, 
+textarea:focus, 
+select:focus,
+.input-field__input:focus {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border-color: var(--color-primary) !important; /* Azul Apple */
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15) !important;
+    outline: none !important;
+}
+
+/* Ajuste específico para etiquetas de input que ya tenías */
+.input-field__label {
+    border-radius: 24px !important;
+}
+    
+/* Eliminar el fondo blanco en el buscador del header */
+#header .unified-search__form input {
+    background-color: transparent !important;
+
+}
+
+.unified-search-modal__header{
+    background-color: transparent !important;
+}    
+.modal-container{ 
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(5px) saturate(200%) !important;
+} 
+
+div.modal-wrapper--full > .modal-container{ 
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: none!important;
+} 
+.top-bar,
+.text-editor,
+.text-editor__main,
+.editor,
+.text-menubar{
+    border-radius: 24px !important; /* Bordes más pronunciados tipo widget */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.text-editor__content:hover{
+    border: none !important;
+}
+div.ProseMirror:hover {
+    border: none !important;
+}
+
+
+/* Botones secundarios, terciarios y de Ghost estilo Apple */
+a.button-vue--vue-primary,
+a.button-vue--vue-secondary,
+#content-vue button,
+.button, 
+button:not(.primary), 
+.icon-add {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 12px !important; /* Siguiendo el estándar de tus inputs */
+    color: var(--color-main-text) !important;
+    transition: all 0.2s ease !important;   
+}
+
+div.unified-search-modal__header .input-field{
+    padding-bottom: 0.3em;
+}
+
+.content__actions button,
+button.app-sidebar__close,
+button.app-navigation-toggle {
+    padding: .1em 1.2em .1em 1.2em !important;
+}
+div.editor .text-menubar{
+   padding: 1.5em !important;
+}
+button.action-button,
+#content-vue button.action-button,
+#content-vue .new-message-form__emoji-picker button,
+#content-vue .app-navigation__search button,
+#content-vue .app-navigation-search__input button,
+#content-vue .app-sidebar-header button,
+#content-vue .section-header button.button-vue--tertiary,
+.new-message-form__emoji-picker button,
+.content__actions .button,
+.content__actions button,
+.action-item .button,
+.action-item button,
+.section-header .button,
+.section-header button,
+.sharin.g-search .button,
+.sharing-search button,
+.sharing-search input,
+.input-field__main-wrapper .button,
+.input-field__main-wrapper button,
+#content-vue .files-list__filters button,
+#content-vue .files-list__thead .button, 
+#content-vue .files-list__thead button, 
+.header-end .button, 
+.header-end button, 
+#content-vue button.files-list__row-name-link{
+ background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Efecto hover para botones no primarios */
+button.action-button:hover,
+#content-vue button.action-button:hover,
+#content-vue .new-message-form__emoji-picker button:hover,
+#content-vue .app-navigation__search button:hover,
+#content-vue .app-navigation-search__input button:hover,
+#content-vue .app-sidebar-header button:hover,
+#content-vue .section-header button.button-vue--tertiary:hover,
+#content-vue .files-list__thead .button:hover, 
+#content-vue .files-list__thead button:hover, 
+#content-vue .files-list__filters button:hover,
+.button:hover, 
+a.button-vue--vue-primary:hover,
+a.button-vue--vue-secondary:hover,
+button:not(.primary):hover {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;*/
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px); /* Pequeño levante */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Selectores de etiquetas y desplegables complejos */
+.multiselect,
+.multiselect__tags,
+.multiselect__content-wrapper,
+.multiselect__element {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(12px) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix para el texto dentro de los multiselect */
+.multiselect__input, 
+.multiselect__single {
+    background: transparent !important;
+    color: var(--color-main-text) !important;
+}
+
+input:focus + label{  
+   background: transparent !important; 
+   backdrop-filter: var(--glass-blur) !important; /* Usa tu blur(20px) saturate(180%) */
+   color: #222222 !important;
+   padding-left: .8em!important;
+}
+
+/* --- SELECTORES Y COMBOS ESTILO ICLOUD --- */
+
+/* 1. Base del Select y Multiselect */
+select, 
+.multiselect, 
+.multiselect__tags, 
+.v-select .vs__dropdown-toggle {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 12px !important; /* Estilo Apple moderno */
+    color: var(--color-main-text) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* 2. El Menú que se despliega (La lista de opciones) */
+.multiselect__content-wrapper, 
+.vs__dropdown-menu, 
+.v-popper__inner {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    margin-top: 5px !important;
+    padding: 5px !important;
+}
+
+/* 3. Estilo de las opciones individuales (Hover) */
+.multiselect__option--highlight, 
+.vs__dropdown-option--highlight,
+.multiselect__option:hover {
+    background-color: #007AFF !important; /* Azul Apple */
+    color: #ffffff !important;
+    border-radius: 8px !important;
+}
+
+/* 5. Flechas y botones internos del combo */
+.multiselect__select:before {
+    border-color: var(--color-main-text) transparent transparent !important;
+}
+
+
+
+/* --- ESTILO ICLOUD PARA RICH WORKSPACE --- */
+
+/* 1. Contenedor principal del editor */
+.text-editor__main {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Transparencia base */
+    backdrop-filter: blur(5px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(5px) saturate(180%) !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    margin: 0px !important;
+}
+
+
+/* 2. Barra de herramientas (Toolbar) con degradado sutil */
+.text-menubar, 
+.rich-workspace__toolbar {
+    background: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.4) 100%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 22px 22px 0 0 !important;
+    padding: 10px !important;
+}
+
+/* 3. Área de escritura (El lienzo) */
+.ProseMirror {
+    background: transparent !important;
+    padding: 40px !important; /* Espaciado generoso tipo Apple Notes */
+    line-height: 1.6 !important;
+    color: #1d1d1f !important; /* Negro suave de Apple */
+}
+
+
+
+/* Ajuste para el Rich Workspace (Notas superiores) */
+#rich-workspace.unfocus, 
+#rich-workspace {
+    border-radius: 18px !important; /* Bordes redondeados estilo Apple */
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+}
+#rich-workspace:not(.focus):not(.empty):after{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff94)!important;
+}
+
+#body-public span { color: #1d1d1f !important; /* El negro suave característico de Apple */}
+
+
+/* --- ADAPTACIÓN ICLOUD DEFAULT PARA NEXTCLOUD --- */
+
+[data-theme-default] {
+    /* 1. RESET DE VARIABLES NATIVAS (MODO OSCURO) */
+   --text-color-main: #000000 !important;
+   --color-main-text: #000000 !important;
+}
+
+/* Inversión de colores para widgets en modo oscuro */
+[data-theme-default].panel h2, [data-theme-default].panel h3 {
+  color: var(--text-color-main) !important;
+}
+
+[data-theme-light]{
+  --border-radius-element: 24px!important;
+  --color-border: #75b7ff!important;
+}
+
+[data-theme-default]{
+  --color-border: #75b7ff!important;
+}
+
+[data-theme-default] .files-list tr{
+ border-block-end: 1px solid var(--color-border);
+}
+
+[data-theme-default] .v-popper__inner{
+   background-color: rgba(255, 255, 255, 0.1) !important;
+   backdrop-filter: blur(5px) !important;
+}
+
+[data-theme-default] .modal-container{ 
+    backdrop-filter: blur(5px) saturate(120%) !important;
+}
+[data-theme-default] .unified-search-modal__header
+    {background-color: transparent !important;}
+
+
+/* --- ADAPTACIÓN ICLOUD DARK PARA NEXTCLOUD --- */
+
+[data-theme-dark] {
+    /* 1. RESET DE VARIABLES NATIVAS (MODO OSCURO) */
+    --body-container-radius: 22px !important;
+    --border-radius-element: 22px !important;
+    --color-primary: #007AFF !important; /* Azul Apple se mantiene */
+    --color-primary-element: #007AFF !important;
+    --color-border: #75b7ff !important;
+
+    /* Transparencia oscura global */
+    --color-main-background: rgba(25, 25, 25, 0.75) !important;
+    --color-background-hover: rgba(0, 122, 255, 0.15) !important;
+
+    --background-image-invert-if-bright: invert(1%)!important;
+    
+    /* Variables de cristal oscuro */
+    --glass-bg: rgba(28, 28, 30, 0.6) !important;
+    --glass-header: rgba(20, 20, 20, 0.7) !important;
+    --glass-border: rgba(255, 255, 255, 0.1) !important;
+    --glass-blur: blur(20px) saturate(180%);
+}
+
+/* 2. HEADER Y NAVEGACIÓN (Dark Glassmorphism) */
+[data-theme-dark] #header, 
+[data-theme-dark] .app-navigation, 
+[data-theme-dark] #app-navigation {
+    background-color: rgba(20, 20, 20, 0.6) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. CONTENIDO PRINCIPAL */
+[data-theme-dark] #content, 
+[data-theme-dark] .content {
+    background-color: rgba(30, 30, 30, 0.4) !important;
+    border: 0px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme-dark] #app-content,
+[data-theme-dark] .app-content {
+    padding-top: 15px !important;
+    border-radius: 0 0 0 0!important;
+    background-color: rgba(30, 30, 30, 0.4) !important;
+}
+
+
+[data-theme-dark] #app-sidebar,
+[data-theme-dark] .app-sidebar,
+[data-theme-dark] .app-sidebar-tabs__tab {
+    background-color: rgba(30, 30, 30, 0.3) !important;
+}
+
+
+
+/* 4. ELEMENTOS DEL MENÚ LATERAL */
+[data-theme-dark] .app-navigation-entry.active, 
+[data-theme-dark] .app-navigation-entry.active > a {
+    background-color: rgba(0, 122, 255, 0.2) !important; /* Azul más vibrante para oscuridad */
+    color: #409CFF !important;
+}
+
+/* 5. VISOR DE ARCHIVOS (iCloud Dark Glass) */
+
+[data-theme-dark] div[id^='viewer'], 
+[data-theme-dark] .viewer__content, 
+[data-theme-dark] .viewer__main {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-theme-dark] .text-editor__main,
+[data-theme-dark] .viewer__header {
+    background-color: rgba(40, 40, 40, 0.4) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 6. WIDGETS DEL DASHBOARD */
+[data-theme-dark] .panel {
+    background-color: rgba(45, 45, 45, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme-dark] .panel h2, 
+[data-theme-dark] .panel h3 {
+    color: #FFFFFF !important; /* Texto blanco en widgets */
+}
+
+/* 7. MENÚS DESPLEGABLES */
+[data-theme-dark] .popover__inner, 
+[data-theme-dark] .menu-option, 
+[data-theme-dark] .popover {
+    background-color: rgba(35, 35, 35, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 8. LISTADO DE ARCHIVOS (Transparencia para fondo) */
+[data-theme-dark] .files-list__thead-overlay,
+[data-theme-dark] .files-list__filters,
+[data-theme-dark] .files-list__thead, 
+[data-theme-dark] .files-list__row, 
+[data-theme-dark] #filestable thead th {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Scrollbar estilo macOS Dark */
+[data-theme-dark] ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+* --- WIDGETS DEL DASHBOARD ESTILO IOS --- */
+
+/* Contenedor de cada tarjeta */
+[data-theme-dark] .panel {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(15px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(160%) !important;
+    border-radius: 24px !important; /* Bordes más pronunciados tipo widget */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.05) !important;
+    padding: 15px !important;
+    transition: transform 0.2s ease;
+}
+
+[data-theme-dark] .text-editor{
+    background-color: rgba(40, 40, 40, 0.1) !important;
+}
+
+[data-theme-dark] .text-editor__main,
+[data-theme-dark] .editor,
+[data-theme-dark] .text-menubar{
+    border-radius: 24px !important; /* Bordes más pronunciados tipo widget */
+}
+
+/* --- CORRECCIÓN DE LEGIBILIDAD EN MODO OSCURO --- */
+[data-theme-dark] #header, 
+[data-theme-dark] .app-menu, 
+[data-theme-dark] .app-menu-entry a,
+[data-theme-dark] .app-menu-entry span,
+[data-theme-dark] #app-menu {
+    color: #FFFFFF !important; /* Fuerza el texto a blanco */
+}
+
+/* Mantener el azul de Apple solo para el elemento seleccionado */
+[data-theme-dark] .app-menu-entry.active .icon,
+[data-theme-dark] .app-menu-entry.active a,
+[data-theme-dark] .app-menu-entry.active span {
+    color: #409CFF !important;
+    filter: none !important; /* Quita el filtro blanco para mostrar el azul */
+}
+
+
+/* --- CORRECCIÓN DE TEXTO MODO OSCURO (Pág 8-10 del PDF) --- */
+
+[data-theme-dark] #body-login {
+    color: #FFFFFF !important; /* Texto general blanco en fondo oscuro */
+}
+
+[data-theme-dark] #body-login input, 
+[data-theme-dark] #body-login textarea {
+    color: #FFFFFF !important; /* Texto que escribes en blanco */
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Fondo más oscuro para el input */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Color de los placeholders (el texto sugerido dentro del input) */
+[data-theme-dark] #body-login input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Si los labels (Usuario/Contraseña) no se ven: */
+[data-theme-dark] #body-login label {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+
+/* --- FIX LEGTIBILIDAD MODO DEFAULT (Pág 8 del PDF) --- */
+[data-theme-default] #body-login,
+[data-theme-default] #body-login label,
+[data-theme-default] #body-login .login-form,
+[data-theme-default] #body-login .groupbox,
+[data-theme-default] #body-login a {
+    color: #1d1d1f !important; /* El negro suave característico de Apple */
+}
+
+/* Forzar color de escritura en los inputs */
+[data-theme-default] #body-login input,
+[data-theme-default] #body-login input[type='password'],
+[data-theme-default] #body-login input {
+    color: #000000 !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ajuste para los enlaces de "Olvidé mi contraseña" o "Aviso legal" */
+[data-theme-default] #body-login .lost-password,
+[data-theme-default] #body-login footer a {
+    color: #007AFF !important; /* Azul Apple para enlaces */
+}
+
+
+/* 4. Adaptación para Modo Oscuro */
+[data-theme-dark] select, 
+[data-theme-dark] .multiselect, 
+[data-theme-dark] .multiselect__tags,
+[data-theme-dark] .multiselect__content-wrapper {
+    background-color: rgba(45, 45, 45, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+[data-theme-light] div[id^='viewer'] {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(20px);
+}
+
+
+/* 4. Adaptación para Modo Oscuro (Basado en tu PDF pág 13-17) */
+[data-theme-dark] .rich-workspace,
+[data-theme-dark] .text-editor {
+    background-color: rgba(30, 30, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme-dark] .text-menubar {
+    background: linear-gradient(180deg, 
+        rgba(50, 50, 50, 0.8) 0%, 
+        rgba(30, 30, 30, 0.4) 100%) !important;
+    color: #ffffff !important;
+}
+
+[data-theme-dark] .ProseMirror {
+    color: #ffffff !important;
+}
+
+
+[data-theme-dark] a.button-vue--vue-secondary,
+[data-theme-dark] #content-vue button,
+[data-theme-dark] .button, 
+[data-theme-dark] button:not(.primary), 
+[data-theme-dark] .icon-add {
+    color: #1d1d1f !important; /* El negro suave característico de Apple */
+}
+
+
