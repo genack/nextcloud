@@ -118,6 +118,10 @@ body, #body-user, #body-settings, .app-navigation, .unit, .filelist .name {
     background: rgba(255, 255, 255, 0.5) !important;
 }
 
+#body-login .guest-box{
+    background-color: transparent !important;
+}
+
 /* 2. Limpiar el encabezado del login */
 #body-login #header, 
 .guest #header {
@@ -310,12 +314,24 @@ button.primary,
 .files-list__row, 
 .files-list__tfoot,
 #filestable thead th {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
     backdrop-filter: blur(5px) !important;
 }
 
 #app-content-vue li{
     border-radius: 12px !important;
+    margin-bottom: .2em;
+}
+
+#app-content-vue div.showdetails li{
+    border-radius: 28px !important;
+    margin-bottom: .2em;
+}
+
+
+
+#app-content-vue div.app-content-list{
+ top: 54Px;
 }
 
 .files-list__row {
@@ -526,10 +542,29 @@ button.app-sidebar__close,
 button.app-navigation-toggle {
     padding: .1em 1.2em .1em 1.2em !important;
 }
+.login-box__alternative-logins{
+  margin: 1em 0em 1em 0em;
+}
 
+.ck.ck-toolbar.ck-rounded-corners{border:none!important;}
+.message-composer{ padding: 1em .1em .1em .4em!important;}
+.composer-actions{background: none!important; margin-top: 1em!important;}
+#subject {padding-left: 1em !important;}
+.vs__selected{ padding-left: 1.2em!important; }
+
+.mail-message-attachments,
+#mail-thread-header-fields{ backdrop-filter: blur(5px) !important; }
+.mail-account .vs__search { display: none; }
 #content-vue .card{ border: 1px solid var(--color-border-dark); } 
 
-.modal-container__close,
+#content-vue button.app-sidebar-tabs__tab{
+    border-radius: 12px 12px 0px 0px !important;
+    margin: 0px 1px 0px 1px !important;
+}
+
+.modal-content button.minimize-button,
+.modal-content button.maximize-button,
+button.modal-container__close:not(.primary),
 #content-vue button.icon-collapse,
 div.editor .text-menubar button,
 #content-vue .stack__header button.action-item__menutoggle,
@@ -568,7 +603,7 @@ button.action-button,
 
 /* Efecto hover para botones no primarios */
 
-modal-container__close:hover,
+button.modal-container__close:hover,
 #content-vue button.icon-collapse:hover,
 div.editor .text-menubar button:hover,
 #content-vue .stack__header button.action-item--single:hover,
@@ -592,6 +627,12 @@ button:not(.primary):hover {
     transform: translateY(-1px); /* Pequeño levante */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
 }
+
+
+div.editable .editor{
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    padding: .5em !important;
+} 
 
 /* Selectores de etiquetas y desplegables complejos */
 .multiselect,
@@ -726,10 +767,16 @@ select,
   color: var(--text-color-main) !important;
 }
 
+[data-theme-light] .header-menu__wrapper {
+ background-color:rgba(255, 255, 255, 0.7) !important;
+ backdrop-filter: blur(15px) !important;
+}
+
 [data-theme-light]{
   --border-radius-element: 24px!important;
   --color-border: #75b7ff!important;
   --color-text-maxcontrast: #1d1d1f !important;
+  --color-main-background: rgba(255, 255, 255, 0.2) !important; 
 }
 
 [data-theme-default]{
@@ -989,6 +1036,7 @@ select,
     color: #ffffff !important;
 }
 
+
 [data-theme-dark] a.button-vue--vue-secondary,
 [data-theme-dark] #content-vue button,
 [data-theme-dark] .button, 
@@ -996,3 +1044,5 @@ select,
 [data-theme-dark] .icon-add {
     color: #1d1d1f !important; /* El negro suave característico de Apple */
 }
+
+
