@@ -546,6 +546,12 @@ button.app-navigation-toggle {
   margin: 1em 0em 1em 0em;
 }
 
+@media only screen and (max-width: 700px){
+  #app-sidebar-vue{
+    padding: .2em 0em 0em 1em!important;
+  }
+}
+
 .ck.ck-toolbar.ck-rounded-corners{border:none!important;}
 .message-composer{ padding: 1em .1em .1em .4em!important;}
 .composer-actions{background: none!important; margin-top: 1em!important;}
@@ -594,11 +600,11 @@ button.action-button,
 .header-end .button, 
 .header-end button, 
 #content-vue button.files-list__row-name-link{
- background: transparent !important;
+    background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none !important;
-    border: none !important;
+    border: 0px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 /* Efecto hover para botones no primarios */
